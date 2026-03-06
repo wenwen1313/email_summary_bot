@@ -1,0 +1,29 @@
+name: Daily Email Summary
+
+on:
+  schedule:
+    - cron: '0 8 * * *'   # runs every day at 8AM UTC
+  workflow_dispatch:        # allows manual trigger from GitHub UI
+
+jobs:
+  send-summary:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run email summary
+        env:
+          FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
+          TO_EMAIL:   ${{ secrets.TO_EMAIL }}
+          GMAIL_TOKEN: ${{ secrets.GMAIL_TOKEN }}
+        run: python email_summary.py
