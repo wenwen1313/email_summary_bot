@@ -183,16 +183,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
-
----
-
-**File 2 — `requirements.txt`:**
-```
-google-auth
-google-auth-httplib2
-google-api-python-client
-transformers
-torch
-accelerate
-beautifulsoup4
