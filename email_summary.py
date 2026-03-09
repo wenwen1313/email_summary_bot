@@ -16,7 +16,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 
 # ── Config ────────────────────────────────────────
 SCOPES       = ['https://mail.google.com/']
-TARGET_DOMAINS = ['go.umterps.com', 'umd.edu']
+TARGET_DOMAINS = ['go.umterps.com', 'umd.edu', 'digital.costco.com']
 FROM_EMAIL   = os.environ['FROM_EMAIL']
 TO_EMAIL     = os.environ['TO_EMAIL']
 MAX_EMAILS   = 20
